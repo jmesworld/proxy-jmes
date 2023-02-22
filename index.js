@@ -12,8 +12,7 @@ const app = express();
 // GET Info endpoint
 app.get("/", (req, res, next) => {
   res
-    .sendStatus(200)
-    .send("This is a proxy service which proxies to JMES RPC.");
+    .sendStatus(200);
 });
 
 // Proxy endpoints
