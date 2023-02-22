@@ -18,12 +18,12 @@ app.get("/", (req, res, next) => {
 
 // Proxy endpoints
 app.use(
-  "/rpc/",
+  "/rpc",
   createProxyMiddleware({
     target: API_SERVICE_URL,
     changeOrigin: true,
     pathRewrite: {
-      [`^/`]: "",
+      [`^/rpc`]: "",
     },
   })
 );
