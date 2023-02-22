@@ -28,4 +28,4 @@ app.use(
 );
 
 // Start the Proxy
-httpServer.listen(PORT, () => console.log(`Listening on port ${port}`));
+httpServer.listen(PORT, () => console.log(`Proxy listening on port ${PORT}`));
