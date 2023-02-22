@@ -1,10 +1,12 @@
 import express from "express";
 import morgan from "morgan";
 import { createProxyMiddleware } from "http-proxy-middleware";
+import * as dotenv from 'dotenv';
+dotenv.config()
 
 const PORT = 8080;
 const HOST = "localhost";
-const API_SERVICE_URL = "http://51.38.52.37:1889";
+const API_SERVICE_URL = process.env.API_SERVICE_URL;
 
 const app = express();
 app.use(morgan("dev")); //logging
