@@ -1,13 +1,14 @@
 import express from "express";
+import { createServer } from "http";
 import { createProxyMiddleware } from "http-proxy-middleware";
 import * as dotenv from "dotenv";
 dotenv.config();
 
 const PORT = 8080;
-const HOST = "localhost";
 const API_SERVICE_URL = process.env.API_SERVICE_URL;
 
 const app = express();
+const httpServer = createServer(app);
 
 // GET Info endpoint
 app.get("/", (req, res, next) => {
@@ -27,6 +28,4 @@ app.use(
 );
 
 // Start the Proxy
-app.listen(PORT, HOST, () => {
-  console.log(`Starting Proxy at ${HOST}:${PORT}`);
-});
+httpServer.listen(PORT, () => console.log(`Listening on port ${port}`));
