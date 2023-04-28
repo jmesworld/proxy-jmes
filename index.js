@@ -4,7 +4,7 @@ import { createProxyMiddleware } from "http-proxy-middleware";
 import * as dotenv from "dotenv";
 dotenv.config();
 
-const PORT = 8000;
+const PORT = 8080;
 const API_SERVICE_URL = process.env.API_SERVICE_URL;
 
 const app = express();
