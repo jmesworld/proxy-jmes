@@ -27,6 +27,17 @@ app.use(
   })
 );
 
+app.use(
+  "/cosmos/staking/v1beta1/delegations/:address",
+  createProxyMiddleware({
+    target: API_SERVICE_URL,
+    changeOrigin: true,
+    pathRewrite: {
+      "^/cosmos/staking/v1beta1/delegations/": "/cosmos/staking/v1beta1/delegations/",
+    },
+  })
+);
+
 
 // Start the Proxy
 httpServer.listen(PORT, () => console.log(`Proxy listening on port ${PORT}`));
