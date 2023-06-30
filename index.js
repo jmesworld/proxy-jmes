@@ -17,24 +17,13 @@ app.get("/", (req, res, next) => {
 
 
 app.use(
-  "/cosmos/bank/v1beta1/balances/:address",
+  "*",
   createProxyMiddleware({
     target: API_SERVICE_URL,
     changeOrigin: true,
-    pathRewrite: {
-      "^/cosmos/bank/v1beta1/balances/": "/cosmos/bank/v1beta1/balances/",
-    },
-  })
-);
-
-app.use(
-  "/cosmos/staking/v1beta1/delegations/:address",
-  createProxyMiddleware({
-    target: API_SERVICE_URL,
-    changeOrigin: true,
-    pathRewrite: {
-      "^/cosmos/staking/v1beta1/delegations/": "/cosmos/staking/v1beta1/delegations/",
-    },
+    // pathRewrite: {
+    //   "^/cosmos/bank/v1beta1/balances/": "/cosmos/bank/v1beta1/balances/",
+    // },
   })
 );
 
